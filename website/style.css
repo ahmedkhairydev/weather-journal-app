@@ -1,0 +1,200 @@
+body{
+    background: #f23557;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+}
+
+#app {
+    display: grid;
+    grid-auto-rows: minmax(40px, auto);
+    grid-template-columns: 90%;
+    height: max-content;
+    color: #f0d43a;
+    justify-content: center;
+    grid-gap: 1em;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    padding-bottom: 2rem;
+}
+
+.wrapper {
+    height: 100vh;
+}
+
+.holder {
+    display: flex;
+    flex-direction: column;
+}
+
+.entry {
+    background: rgba(59, 74, 107, .4);
+    height: max-content;
+}
+
+#entryHolder {
+    padding: 1rem 1rem 0;
+}
+
+#entryHolder .each-row {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: minmax(70px, 1fr);
+}
+
+#entryHolder .each-row .each-col {
+    display: flex;
+    flex-direction: column;
+}
+
+#entryHolder .each-row .each-col label {
+    font-size: 14px;
+}
+
+.headline {
+    justify-content: center;
+    align-items: center;
+    color: #f0d43a;
+}
+
+.title {
+    margin: 0;
+    padding: 4px 16px;
+}
+
+.units-wrapper span:last-child {
+    margin-inline-start: 1rem;
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #f0d43a;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #F87DA9;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+/*  Basic Styling To Override Default For Basic HTML Elements */
+label{
+    display: block;
+    font-size: 27px;
+}
+
+input{
+    display:block;
+    height: 60px;
+    width: 320px;
+    background:#22b2da;
+    color: #f0d43a;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+}
+
+button{
+    width: 380px;
+    height: 40px;
+    background: #3b4a6b;
+    color: #f0d43a;
+    font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    box-shadow: 2px 4px 5px #444;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+button:disabled {
+    background: #dde0e2;
+    color: #fff;
+    box-shadow: none;
+    cursor: default;
+}
+
+h1{
+    font-size: 36px;
+}
+
+textarea{
+    background:#22b2da;
+    color: #f0d43a;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+/* Style for Placeholder Text*/
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: #f0d43a; 
+    font-family: 'Oswald', sans-serif;
+} 
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+    color: #f0d43a; 
+    font-family: 'Oswald', sans-serif;
+} 
+  
+::-ms-input-placeholder { /* Microsoft Edge */ 
+    color: #f0d43a; 
+    font-family: 'Oswald', sans-serif;
+} 
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

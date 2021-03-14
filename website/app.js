@@ -6,6 +6,7 @@ let zip = document.getElementById('zip'),
     c = document.getElementById('c'),
     f = document.getElementById('f');
 
+// Personal API Key for OpenWeatherMap API
 const mainURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
 const APIKey = '5dcf0b4fc5ee9b571166ccb66db35332';
 
@@ -14,7 +15,7 @@ let date = new Date();
 let newDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
 
 
-// add temp data to the server
+/* Function to POST data */
 const setTemp = async (url = ``, data = {}) => {
     console.log(data);
     const response = await fetch(url, {
@@ -34,7 +35,7 @@ const setTemp = async (url = ``, data = {}) => {
     }
 }
 
-// get Temp function...
+/* Function to GET Web API Data*/
 const getTemp = () => {
     let units = c.checked ? c.value : f.value;
     fetch(`${mainURL}${zip.value},us&appid=${APIKey}&units=${units}`).then(result => {
@@ -62,7 +63,7 @@ const getTemp = () => {
     });
 }
 
-// get all temps from our server
+/* Function to GET Project Data */
 const getAllTemp = async () => {
     const request = await fetch('/getAllTemp');
 
@@ -107,9 +108,11 @@ const getAllTemp = async () => {
 getAllTemp();
 
 // get Temp when click
+// Event listener to add function to existing HTML DOM element
 btn.addEventListener('click', getTemp);
 
 // stop write 'e' word
+// Event listener to add function to existing HTML DOM element
 zip.addEventListener('keydown', ($event) => {
     if($event.keyCode === 69) {
         $event.preventDefault();
@@ -117,6 +120,7 @@ zip.addEventListener('keydown', ($event) => {
 });
 
 // remove disabled attr. from the btn
+// Event listener to add function to existing HTML DOM element
 zip.addEventListener('input', ($event) => {
     if($event.target.value.length) {
         btn.removeAttribute('disabled');
